@@ -6,7 +6,7 @@ use crate::components::CfuComponentTraits;
 /// E is an error type that can be defined by the implementor
 /// C is a command type that can be defined by the implementor
 /// T is a generic args type that can be defined by the implementor to pass any additional info to the methods
-pub trait CfuReceiveContent<T, C, E: Default> {
+pub trait CfuReceiveContent<T, C, E> {
     /// receives a CFU command from a Host and processes the contents
     /// Typestates here allow for flexible implementations
     fn process_command(&self, args: Option<T>, cmd: C) -> impl Future<Output = Result<(), E>>;
